@@ -1,0 +1,122 @@
+<head><version>1.7.2.21</version></head>
+<Movement>
+  <freeze_difference>10</freeze_difference>
+  <difference_channel>3</difference_channel>
+  <anti_auto_adjustment>TRUE</anti_auto_adjustment>
+  <difference>18</difference>
+  <set_still_black>1</set_still_black>
+  <continuious>TRUE</continuious>
+  <set_movement_white>1</set_movement_white>
+  <reference_frame>10</reference_frame>
+</Movement>
+<Blob_Size>
+  <cutoff>10</cutoff>
+  <limit>1024</limit>
+  <mask>TRUE</mask>
+  <object_size>10</object_size>
+</Blob_Size>
+<Center_of_Gravity>
+  <show_coord>TRUE</show_coord>
+  <color_index>2</color_index>
+  <connect_line>TRUE</connect_line>
+  <density>-1</density>
+  <overlay_source>TRUE</overlay_source>
+  <show_box>TRUE</show_box>
+  <box_size>9</box_size>
+  <show_cog>TRUE</show_cog>
+</Center_of_Gravity>
+<VBScript_Program>
+  <filename>C:\pic\projects\LPT\ROBOrealm\test_variable.vbs</filename>
+  <script>SetVariable "input_variable",16</script>
+  <source_mode>gui</source_mode>
+</VBScript_Program>
+<Parallel_Port>
+  <pin_8_bit>-1</pin_8_bit>
+  <pin_17_bit>-1</pin_17_bit>
+  <pin_13_bit>3</pin_13_bit>
+  <pin_12_bit>2</pin_12_bit>
+  <pin_9_bit>-1</pin_9_bit>
+  <pin_6_bit>-1</pin_6_bit>
+  <pin_5_bit>-1</pin_5_bit>
+  <pin_11_status>FALSE</pin_11_status>
+  <pin_13_status>TRUE</pin_13_status>
+  <pin_15_bit>4</pin_15_bit>
+  <pin_14_bit>-1</pin_14_bit>
+  <pin_5_status>FALSE</pin_5_status>
+  <pin_2_status>FALSE</pin_2_status>
+  <pin_7_status>FALSE</pin_7_status>
+  <pin_17_status>FALSE</pin_17_status>
+  <pin_10_status>TRUE</pin_10_status>
+  <pin_7_bit>-1</pin_7_bit>
+  <pin_11_map>input_variable</pin_11_map>
+  <pin_15_map>input_variable</pin_15_map>
+  <pin_3_bit>-1</pin_3_bit>
+  <pin_8_status>FALSE</pin_8_status>
+  <pin_2_bit>-1</pin_2_bit>
+  <pin_4_status>FALSE</pin_4_status>
+  <pin_14_status>FALSE</pin_14_status>
+  <pin_16_status>FALSE</pin_16_status>
+  <pin_11_bit>1</pin_11_bit>
+  <pin_12_map>input_variable</pin_12_map>
+  <pin_4_bit>-1</pin_4_bit>
+  <pin_15_status>TRUE</pin_15_status>
+  <pin_12_status>TRUE</pin_12_status>
+  <pin_13_map>input_variable</pin_13_map>
+  <pin_6_status>FALSE</pin_6_status>
+  <pin_1_bit>-1</pin_1_bit>
+  <pin_16_bit>-1</pin_16_bit>
+  <pin_1_status>FALSE</pin_1_status>
+  <pin_10_map>input_variable</pin_10_map>
+  <pin_9_status>FALSE</pin_9_status>
+  <pin_3_status>FALSE</pin_3_status>
+</Parallel_Port>
+<VBScript_Program>
+  <script>
+
+output_variable = GetVariable("input_variable")
+</script>
+  <source_mode>gui</source_mode>
+</VBScript_Program>
+<Parallel_Port>
+  <pin_8_bit>6</pin_8_bit>
+  <pin_3_map>COG_X</pin_3_map>
+  <pin_8_map>COG_X</pin_8_map>
+  <pin_17_bit>-1</pin_17_bit>
+  <pin_9_map>COG_X</pin_9_map>
+  <pin_13_bit>-1</pin_13_bit>
+  <pin_12_bit>-1</pin_12_bit>
+  <pin_4_map>COG_X</pin_4_map>
+  <pin_9_bit>7</pin_9_bit>
+  <pin_6_bit>4</pin_6_bit>
+  <pin_5_bit>3</pin_5_bit>
+  <pin_11_status>FALSE</pin_11_status>
+  <pin_13_status>TRUE</pin_13_status>
+  <pin_15_bit>-1</pin_15_bit>
+  <pin_5_map>COG_X</pin_5_map>
+  <pin_14_bit>-1</pin_14_bit>
+  <pin_5_status>FALSE</pin_5_status>
+  <pin_10_bit>-1</pin_10_bit>
+  <pin_2_map>COG_X</pin_2_map>
+  <pin_2_status>FALSE</pin_2_status>
+  <pin_7_status>FALSE</pin_7_status>
+  <pin_17_status>FALSE</pin_17_status>
+  <pin_10_status>TRUE</pin_10_status>
+  <pin_7_bit>5</pin_7_bit>
+  <pin_3_bit>1</pin_3_bit>
+  <pin_8_status>FALSE</pin_8_status>
+  <pin_4_status>FALSE</pin_4_status>
+  <pin_14_status>FALSE</pin_14_status>
+  <pin_16_status>FALSE</pin_16_status>
+  <pin_11_bit>-1</pin_11_bit>
+  <pin_4_bit>2</pin_4_bit>
+  <pin_15_status>TRUE</pin_15_status>
+  <pin_12_status>TRUE</pin_12_status>
+  <pin_6_status>FALSE</pin_6_status>
+  <pin_1_bit>-1</pin_1_bit>
+  <pin_16_bit>-1</pin_16_bit>
+  <pin_6_map>COG_X</pin_6_map>
+  <pin_1_status>FALSE</pin_1_status>
+  <pin_9_status>FALSE</pin_9_status>
+  <pin_7_map>COG_X</pin_7_map>
+  <pin_3_status>FALSE</pin_3_status>
+</Parallel_Port>

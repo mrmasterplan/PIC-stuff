@@ -1,0 +1,12 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WindowsApplication1.Resources.resources
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\WindowsApplication1.Resources.resources
+obj\Release\WindowsApplication1.vbproj.GenerateResource.Cache
+bin\Debug\Extension.exe
+bin\Debug\Extension.pdb
+bin\Debug\Extension.xml
+obj\Debug\Extension.vbproj.GenerateResource.Cache
+obj\Debug\Extension.exe
+obj\Debug\Extension.xml
+obj\Debug\Extension.pdb

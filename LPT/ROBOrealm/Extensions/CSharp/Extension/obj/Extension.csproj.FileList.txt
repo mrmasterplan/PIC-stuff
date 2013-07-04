@@ -1,0 +1,9 @@
+obj\Release\Extension.exe
+obj\Release\Extension.pdb
+bin\Debug\Extension.exe
+bin\Debug\Extension.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Extension.Properties.Resources.resources
+obj\Debug\Extension.csproj.GenerateResource.Cache
+obj\Debug\Extension.exe
+obj\Debug\Extension.pdb

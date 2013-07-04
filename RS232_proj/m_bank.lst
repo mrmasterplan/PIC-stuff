@@ -1,0 +1,115 @@
+MPASM  4.00 Released                               M_BANK.ASM   2-9-2007  21:51:42         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 
+                      00002 BANK0   macro                   ; select register bank 0
+                      00003         bcf     STATUS,RP0
+                      00004         bcf     STATUS,RP1
+                      00005         endm
+                      00006         
+                      00007 BANK1   macro                   ; select register bank 1
+                      00008         bsf     STATUS,RP0
+                      00009         bcf     STATUS,RP1
+                      00010         endm
+                      00011 
+                      00012 BANK2   macro                   ; select register bank 2
+                      00013         bcf     STATUS,RP0
+                      00014         bsf     STATUS,RP1
+                      00015         endm
+                      00016 
+                      00017 BANK3   macro                   ; select register bank 3
+                      00018         bsf     STATUS,RP0
+                      00019         bsf     STATUS,RP1
+                      00020         endm
+                      00021 
+                      00022 
+                      00023 ;*** Conditional branching ***
+                      00024 ; Macros to simplify 'IF THEN ELSE' queries
+                      00025 ; Pre:  valid w
+                      00026 ; Post: compare w vs. m_val, branch to m_target or not
+                      00027 
+                      00028 ;branch on equal w and m_val
+                      00029 ;BEQ    macro   m_val, m_target
+                      00030 ;       sublw   m_val
+                      00031 ;       bz      m_target        ; zero bit set, branch
+                      00032 ;       endm
+                      00033 ;
+                      00034 ;branch on 0 value in register m_file, jump to m_target
+                      00035 ;BZF    macro   m_file, m_target
+                      00036 ;       tstf    m_file          ; check register (Z)
+                      00037 ;       bz      m_target        ; zero bit set, branch
+                      00038 ;       endm    
+                      00039 ;
+                      00040 ;branch on not equal w and m_val
+                      00041 ;BNEQ   macro   m_val, m_target
+                      00042 ;       sublw   m_val
+                      00043 ;       bnz     m_target        ; zero bit not set, branch
+                      00044 ;       endm
+                      00045 ;
+                      00046 ;branch on not 0 value in register m_file, jump to m_target
+                      00047 ;BNZF   macro   m_file, m_target
+                      00048 ;       tstf    m_file          ; check register (Z)
+                      00049 ;       bnz     m_target        ; zero bit set, branch
+                      00050 ;       endm    
+                      00051 ;
+                      00052 ;branch on greater w than m_val
+                      00053 ;BRG    macro   m_val, m_target
+MPASM  4.00 Released                               M_BANK.ASM   2-9-2007  21:51:42         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00054 ;       sublw   m_val           ; result = m_val - w
+                      00055 ;       bnc     m_target        ; no carry if result negative, branch
+                      00056 ;       endm
+                      00057 ;
+                      00058 ;branch on equal or greater w than m_val
+                      00059 ;BREG   macro   m_val, m_target
+                      00060 ;       sublw   m_val-0x1       ; result = (m_val-1) - w
+                      00061 ;       bnc     m_target        ; no carry if result negative, branch
+                      00062 ;       endm
+                      00063 ;
+                      00064 ;branch on smaller w than m_val
+                      00065 ;BRS    macro   m_val, m_target
+                      00066 ;       sublw   m_val-0x1       ; result = (m_val-1) - w
+                      00067 ;       bc      m_target        ; carry if result zero or positive, branch
+                      00068 ;       endm
+                      00069 ;
+                      00070 ;branch on equal or smaller w than m_val
+                      00071 ;BRES   macro   m_val, m_target
+                      00072 ;       sublw   m_val           ; result = m_val - w
+                      00073 ;       bc      m_target        ; carry if result zero or positive, branch
+                      00074 ;       endm
+                      00075 ;
+                      00076 ;*** Microchip Tips'n Tricks ***
+                      00077 ; swaps the contents of W and REG without using a second register
+                      00078 ; from 'Microchip Tips'n Tricks'
+                      00079 
+                      00080 SWAPWF macro REG
+                      00081         XORWF   REG,F
+                      00082         XORWF   REG,W
+                      00083         XORWF   REG,F
+                      00084         endm
+                      00085         end
+MPASM  4.00 Released                               M_BANK.ASM   2-9-2007  21:51:42         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BANK0                             
+BANK1                             
+BANK2                             
+BANK3                             
+SWAPWF                            
+__16F690                          00000001
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

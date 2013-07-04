@@ -1,0 +1,367 @@
+
+
+
+html{
+	font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+	font-size: 0.75em;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	color:black;
+
+	background : #fff url(/inc/img/body-bg.png) repeat-y top right;
+}
+
+a:link{color: #444;	background: transparent; text-decoration: none;}
+a:visited{color: #666;background: transparent; text-decoration: none;}
+a:hover{color: #111;	background: transparent; text-decoration: none;}
+a[hreflang]:after {content: "\0000a0[" attr(hreflang) "]"; color:#999; background:transparent;}
+a img{
+    border: none;
+}
+
+
+hr{
+/*	display: none;*/
+}
+
+
+
+#top {
+	float: left;
+
+	width: 100%;
+	border-bottom: 3px solid #AAA;	background: #0a902c url(/inc/img/proc.png) no-repeat 20px -25px;
+/*	position: relative;*/
+}
+
+#top h1 {
+	font-size: 250%;
+	letter-spacing: 5px;
+}
+
+#top h1 a {
+	text-decoration: none;
+	color: #FFF;
+	background: transparent;
+}
+
+#top h2 {
+	color: #EEE;
+	margin-top: -20px;
+	margin-left: 180px;
+}
+
+h2 a{
+	color: #454A5F;
+	background: transparent;
+	text-decoration: none;
+}
+
+h2 a:visited{
+	color: #454A5F;
+	background: transparent;
+}
+
+label{
+	cursor: pointer;
+	cursor: hand;
+}
+
+ul{
+	list-style-image: url(/inc/img/puce.png);
+}
+
+ol{
+	list-style: decimal;
+}
+
+blockquote{
+	background: #EEE;
+	padding: 10px;
+	margin: 1em;
+	-moz-border-radius: 15px;
+}
+
+.comment-info {
+
+}
+
+.form-help {
+
+}
+
+
+#noimg {
+	display: none;
+}
+
+.tags li {
+    display: inline;
+}
+
+/*
+pre{
+	font-size: 1.2em;
+	font-family: monospace;
+	border: 1px solid #E0E0E0;
+	padding: 1em;
+	margin: 0 auto;
+	background: #EEE;
+	color: #000;
+	width: 90%;
+	overflow: auto;
+}
+*/
+
+
+.error {
+	color: red;
+	background: #FCC;
+	font-size: 90%;
+	font-weight: bold;
+/*	padding: 5px;*/
+}
+
+
+/*******************************************************************/
+div#page{
+}
+/*******************************************************************/
+
+
+h1{
+	margin: 0;
+	padding: 1em;
+	font-family: arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+
+/*******************************************************************/
+
+p#prelude{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	margin: 0;
+	color: #FFD633;
+	background: transparent;
+	font-size: 1em;
+}
+
+p#prelude a{
+	color: #FFD633;
+	text-decoration: none;
+}
+
+
+
+
+
+
+/*******************************************************************/
+
+
+#sidebar {
+	background: #EFEFEF;
+	width: 20%;
+	padding: 1em;
+	float: left;
+	border-right: 1px solid #CCC;
+    padding-bottom: 70px;
+	background : #EFEFEF url(/inc/img/sidebar-bottom.png) repeat-x bottom right;
+}
+
+#sidebar h2 {
+	border-bottom: 3px solid #FFF;
+	font-size: 1.2em;
+}
+
+#sidebar ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+	display:inline;
+}
+
+#sidebar a {
+	display: block;
+	padding: 0.5em;
+	text-decoration: none;
+}
+
+#sidebar .ilinks a:hover {
+	background: #DDD;
+	-moz-border-radius: 10px;
+}
+
+#sidebar .ilinks input[type=submit] {
+	border: 1px solid #DDD;
+	padding: 3px;
+	background: #CCC;
+}
+
+.ilinks a#actif{
+	color: black;
+	font-weight: bold;
+	background: #FFF;
+/*	margin-right: -20px;*/
+	-moz-border-radius: 10px;
+
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+}
+
+#sidebar img {
+    vertical-align: middle;
+}
+
+
+
+
+#main{
+	width: 68%;
+	margin: 2%;
+
+	float: left;
+
+/*	border-bottom: 1px solid red;*/
+
+/*
+	right: 80px;
+	top: 120px;
+*/
+
+/*	position: relative;*/
+
+/*	padding: 1em;*//*	display: block;*/
+	}
+
+/*
+#cote {
+	width: 20%;
+	background : #fff url(/inc/img/body-bg.png) repeat-y top right;
+	float: right;
+	display: block;
+}
+*/
+
+
+#foot {
+/*	display: block;*/
+
+/*	position: absolute;
+	clear: both;
+
+	width: 100%;
+	background : #000 url(/inc/img/body-bg-v.png) repeat-x bottom right;
+*/
+}
+
+
+
+
+/*******************************************************************/
+#footer{
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	margin: 0;
+	color: #FFD633;
+	background: transparent;
+	font-size: 0.8em;
+}
+
+#footer a{
+	color: #FFD633;
+	text-decoration: none;
+}
+
+/*******************************************************************/
+
+.help {
+	font-size: 90%;
+}
+
+
+
+.field label{
+	display: block;
+}
+
+fieldset{
+	border: 1px solid #CCC;
+	background: #EEE;
+}
+
+
+textarea{
+	width: 90%;
+	border: 1px solid #CCC;
+	padding: 3px;
+	background: #FFE;
+}
+
+textarea:focus {
+	background: #FFF;
+}
+
+input {
+	border: 1px solid #CCC;
+	padding: 3px;
+	background: #FFE;
+}
+
+input:focus {
+	background: #FFF;
+}
+
+input[type=submit] {
+	border: 1px solid #999;
+	padding: 1px;
+	background: #CCC;
+}
+
+input[type=submit]:hover {
+	border: 1px solid #999;
+	padding: 1px;
+	background: #DDD;
+}
+
+/*
+div.message {
+	background-color: #CC0000;
+	color: white;
+	padding: 10px 10px 10px 10px;
+	border-bottom: 1px solid #000;
+}
+div.message h1 {
+	font-size: 110%;
+	margin: 0px 0px 0px 0px;
+}
+div.message p {
+	font-size: 100%;
+	margin: 0px 0px 0px 0px;
+}
+div.message p a {
+	float: right;
+	margin-top: 1px;
+	margin-left: 1px;
+}
+
+
+
+*/
+

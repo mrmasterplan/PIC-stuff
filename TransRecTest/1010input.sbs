@@ -1,0 +1,65 @@
+## SCL Builder Setup File: Do not edit!!
+
+## VERSION: 3.20.00.00
+## FORMAT:  v1.30.00
+## DEVICE:  PIC16F690
+
+## PINREGACTIONS
+ms
+No Repeat
+RB5
+--
+0
+1
+--
+3
+0
+--
+4
+1
+--
+5
+0
+--
+6
+1
+--
+7
+0
+--
+8
+1
+--
+9
+0
+--
+10
+1
+--
+11
+0
+--
+12
+1
+--
+&
+## ADVPINREGACTIONS
+--
+&
+--
+COND1
+Any
+
+
+
+
+
+
+--
+&
+## CLOCK
+&
+## STIMULUSFILE
+&
+## RESPONSEFILE
+&

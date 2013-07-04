@@ -1,0 +1,47 @@
+RoboRealm, AND SOFTWARE RELATED COMPONENTS.
+
+END-USER LICENSE AGREEMENT FOR ROBOREALM SOFTWARE
+
+IMPORTANT-READ CAREFULLY: This RoboRealm End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Cyte.com,LLC for the RoboRealm product(s) identified above which may include associated software components, media, printed materials, and "online" or electronic documentation ("SOFTWARE PRODUCT"). By installing, copying, or otherwise using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA. If you do not agree to the terms of this EULA, do not install or use the SOFTWARE PRODUCT.
+
+The SOFTWARE PRODUCT is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The SOFTWARE PRODUCT is licensed, not sold.
+
+1.GRANT OF LICENSE. The SOFTWARE PRODUCT is licensed as follows:
+
+* Installation and Use. RoboRealm grants you the right to install and use copies of the SOFTWARE PRODUCT on your computers running validly licensed copies of the operating system for which the SOFTWARE PRODUCT was designed [e.g., Windows(r) 95/98; Windows NT(r), etc.]. 
+
+* Backup Copies. You may also make copies of the SOFTWARE PRODUCT as may be necessary for backup and archival purposes. 
+
+2.DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
+
+* Maintenance of Copyright Notices. You must not remove or alter any copyright notices on all copies of the SOFTWARE PRODUCT. 
+
+* Distribution. You may not distribute copies of the SOFTWARE PRODUCT to third parties.
+
+* Prohibition on Reverse Engineering, Decompilation, and Disassembly. You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.
+
+* Rental. You may not rent, lease, or lend the SOFTWARE PRODUCT.
+
+* Transfer. You may permanently transfer all of your rights under this EULA, provided the recipient agrees to the terms of this EULA.
+
+* No Support. Cyte.com shall have no obligation to provide any product support for the SOFTWARE PRODUCT.
+
+* Support Services. Cyte.com may provide you with support services related to the SOFTWARE PRODUCT ("Support Services"). Use of Support Services is governed by the Cyte.com polices and programs described in "on line" documentation and/or other Cyte.com-provided materials. Any supplemental software code provided to you as part of the Support Services shall be considered part of the SOFTWARE PRODUCT and subject to the terms and conditions of this EULA,unless differently/specifically stated. With respect to technical information you provide to Cyte.com as part of the Support Services, Cyte.com may use such information for its business purposes, including for product support and development. Cyte.com will not utilize such technical information in a form that personally identifies you.
+
+* Export Restrictions. You agree that you will not export or re-export the SOFTWARE PRODUCT, any part thereof, or any process or service that is the direct product of the SOFTWARE PRODUCT (the foregoing collectively referred to as the "Restricted Components"), to any country, person, entity or end user subject to U.S. export restrictions. You specifically agree not to export or re-export any of the Restricted Components (i) to any country to which the U.S. has embargoed or restricted the export of goods or services, which currently include, but are not necessarily limited to Cuba, Iran, Iraq, Libya, North Korea, Sudan and Syria, or to any national of any such country, wherever located, who intends to transmit or transport the Restricted Components back to such country; (ii) to any end-user who you know or have reason to know will utilize the Restricted Components in the design, development or production of nuclear, chemical or biological weapons; or (iii) to any end-user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government. You warrant and represent that neither the BXA nor any other U.S. federal agency has suspended, revoked, or denied your export privileges.
+
+* Compliance with Applicable Laws. You must comply with all applicable laws regarding use of the SOFTWARE PRODUCT.
+
+3. TERMINATION. Without prejudice to any other rights, Cyte.com may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT.
+
+4. COPYRIGHT. All title, including but not limited to copyrights, in and to the SOFTWARE PRODUCT and any copies thereof are owned by Cyte.com or its suppliers. All title and intellectual property rights in and to the content which may be accessed through use of the SOFTWARE PRODUCT is the property of the respective content owner and may be protected by applicable copyright or other intellectual property laws and treaties. This EULA grants you no rights to use such content. All rights not expressly granted are reserved by Cyte.com.
+
+5. NO WARRANTIES. Cyte.com expressly disclaims any warranty for the SOFTWARE PRODUCT. THE SOFTWARE PRODUCT AND ANY RELATED DOCUMENTATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OR MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE SOFTWARE PRODUCT REMAINS WITH YOU. CYTE.COM AND ITS SUPPLIERS ASSUME NO RESPONSIBILITY FOR DEFECTS IN THE SOFTWARE PRODUCT OR THE ACCURACY OF THE SOFTWARE PRODUCT. CYTE.COM AND ITS SUPPLIERS DO NOT WARRANT, GUARANTEE, OR MAKE ANY REPRESENTATIONS REGARDING THE USE, OR THE RESULTS OF THE USE, OF THE PRODUCT IN TERMS OF CORRECTNESS, ACCURACY, RELIABILITY, CURRENTNESS, OR OTHERWISE, OR THAT THE SOFTWARE PRODUCT WILL MEET YOUR NEEDS, OR THAT OPERATION OF THE SOFTWARE PRODUCT WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT ANY DEFECTS IN THE SOFTWARE PRODUCT WILL BE CORRECTED. CYTE.COM AND ITS SUPPLIERS SHALL NOT BE LIABLE FOR ANY LOSS, DAMAGES, OR COSTS ARISING FROM THE USE OF THE SOFTWARE PRODUCT. SOME STATES DO NOT ALLOW EXCLUSION OR LIMITATION OF IMPLIED WARRANTIES OR LIMITATION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO ALL OF THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY TO YOU.
+
+6. LIMITATION OF LIABILITY. To the maximum extent permitted by applicable law, in no event shall Cyte.com or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use the SOFTWARE PRODUCT or the provision of or failure to provide Support Services, even if Cyte.com has been advised of the possibility of such damages. In any case, Cyte.com's entire liability under any provision of this EULA shall be limited to the greater of the amount actually paid by you for the SOFTWARE PRODUCT or US$5.00; provided however, if you have entered into an Cyte.com Support Services Agreement, Cyte.com's entire liability regarding Support Services shall be governed by the terms of that agreement. Because some states and jurisdictions do not allow the exclusion or limitation of liability, the above limitation may not apply to you.
+
+7. MISCELLANEOUS.
+
+Should you have any questions concerning this EULA, or if you desire to contact Cyte.com for any reason, please contact Cyte.com at contact@roborealm.com.
+
+

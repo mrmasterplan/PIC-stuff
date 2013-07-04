@@ -1,0 +1,2 @@
+Warning[205] C:\PIC\PROJECTS\TEST\UNTITLED.ASM 4 : Found directive in column 1. (__config)
+Message[302] C:\PIC\PROJECTS\TEST\UNTITLED.ASM 7 : Register in operand not in bank 0.  Ensure that bank bits are correct.

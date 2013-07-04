@@ -1,0 +1,51 @@
+MPASM  4.00 Released                              M_RS096.ASM   2-9-2007  21:39:44         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 
+                      00002 
+                      00003         
+                      00004 
+                      00005 SEND    macro   S_string        ; "SEND 'X'" sends character to RS232
+                      00006         movlw   S_string
+                      00007         BANK0
+                      00008         call    SENDsub
+                      00009         endm
+                      00010 
+                      00011 
+                      00012 ;***** SUBROUTINES *****
+                      00013 
+Error[150]  : Labels must be defined in a code or data section when making an object file
+0000                  00014 SENDsub 
+Error[113]  : Symbol not previously defined (TXIF)
+Error[128]  : Missing argument(s)
+Error[152]  : Executable code and data must be defined in an appropriate section
+0000                  00015         btfss   TXIF
+Error[151]  : Operand contains unresolvable labels or is too complex
+Error[152]  : Executable code and data must be defined in an appropriate section
+0000                  00016         goto    SENDsub
+Error[113]  : Symbol not previously defined (TXREG)
+Error[152]  : Executable code and data must be defined in an appropriate section
+0000                  00017         movwf   TXREG
+                      00018 
+Error[152]  : Executable code and data must be defined in an appropriate section
+0000                  00019         RETURN
+                      00020 
+Error[129]  : Expected (END)
+MPASM  4.00 Released                              M_RS096.ASM   2-9-2007  21:39:44         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SEND                              
+SENDsub                           00000000
+__16F690                          00000001
+
+Errors   :    10
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

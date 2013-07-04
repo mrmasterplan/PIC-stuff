@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: RRModule - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/RRModule.res" /d "NDEBUG" /d "_AFXDLL" "C:\www\RoboRealm\Extensions\DLL\RRModule.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP33.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Release/RRModule.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\www\RoboRealm\Extensions\DLL\HashtableExt.cpp"
+"C:\www\RoboRealm\Extensions\DLL\ModuleDlg.cpp"
+"C:\www\RoboRealm\Extensions\DLL\RoboRealmExt.cpp"
+"C:\www\RoboRealm\Extensions\DLL\RRModule.cpp"
+"C:\www\RoboRealm\Extensions\DLL\SwapColorDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP33.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP34.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Release/RRModule.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\www\RoboRealm\Extensions\DLL\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP34.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP35.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:no /pdb:"Release/RRModule.pdb" /machine:I386 /def:".\RRModule.def" /out:"Release/RRModule.dll" /implib:"Release/RRModule.lib" 
+.\Release\HashtableExt.obj
+.\Release\ModuleDlg.obj
+.\Release\RoboRealmExt.obj
+.\Release\RRModule.obj
+.\Release\StdAfx.obj
+.\Release\SwapColorDlg.obj
+.\Release\RRModule.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP35.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+HashtableExt.cpp
+ModuleDlg.cpp
+C:\www\RoboRealm\Extensions\DLL\ModuleDlg.cpp(108) : warning C4244: 'return' : conversion from 'int' to 'float', possible loss of data
+RoboRealmExt.cpp
+RRModule.cpp
+SwapColorDlg.cpp
+Generating Code...
+Linking...
+   Creating library Release/RRModule.lib and object Release/RRModule.exp
+LINK : warning LNK4089: all references to "OLEAUT32.dll" discarded by /OPT:REF
+
+
+
+<h3>Results</h3>
+RRModule.dll - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

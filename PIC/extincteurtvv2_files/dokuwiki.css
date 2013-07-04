@@ -1,0 +1,544 @@
+/* ---------- table of contents ------------------- */
+
+
+div.toc {
+	margin-left: 2em !important;
+	margin-top: 1.2em !important;
+	margin-bottom: 0 !important;
+
+	float:right !important;
+	width: 350px !important;
+	font-size: 100% !important;
+	clear:both !important;
+}
+
+
+div.tocheader {
+	padding: 3px !important;
+	border: 1px solid #888 !important;
+	background-color: #CCC !important;
+	text-align: left !important;
+	font-weight:bold !important;
+	margin-bottom: 2px !important;
+}
+
+div.toctoggle {
+/*
+	margin-top:0.3em !important;
+	margin-right:3px !important;
+*/
+}
+
+div.toctoggle img {
+	float:right !important;
+	width:0.8em !important;
+	height:0.8em !important;
+}
+
+#tocinside, #toc__inside {
+	border: 1px solid #888 !important;
+	background-color: #ffffff !important;
+	text-align: left !important;
+	padding-top: 0.5em !important;
+	padding-bottom: 0.7em !important;
+	padding-left: 1em !important;
+}
+
+
+
+ul.toc {
+	list-style-type: none !important;
+	list-style-image: url(/inc/img/puce.png) !important;
+	line-height: 1.2em !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	padding-left: 1em !important;
+}
+
+ul.toc li {
+	background: transparent url(images/tocdot2.gif) 0 0.6em no-repeat !important;
+	padding-left:0.4em !important;
+}
+
+ul.toc li.clear {
+	background-image: none !important;
+	padding-left:0.4em !important;
+}
+
+a.toc {
+	color: #000 !important;
+	text-decoration:none !important;
+}
+
+a.toc:hover {
+	text-decoration:underline !important; 
+}
+
+
+
+.head {
+/*	width: 100%;*/
+	background-color: #DDD;
+	-moz-border-radius: 15px 15px 0px 0px;
+	padding: 10px;
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+}
+
+/*	Le nom de la page
+ */
+.pagename {
+	font-weight:bolder;
+	font-size: 200%;
+
+/*	padding-left: 10px;*/
+}
+
+/*	"Piste"
+ */
+.breadcrumbs {
+
+	height:25px;
+/*	float:left;*/
+/*	font-size:60%;*/
+	color:#999;
+	text-align:left;
+/*	vertical-align:middle;*/
+	padding:1px 0 0 1px;
+}
+
+
+
+/*	Info sur la page
+ */
+.pageinfo {
+	padding-left: 10px;
+/*	width: 100%;*/
+	background-color: #DDD;
+	-moz-border-radius: 0px 0px 15px 15px;
+
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+
+/*
+form {
+	display: block;
+}
+*/
+
+
+
+
+/* ---------------------------- Diff rendering --------------------------*/
+table.diff { background:white; }
+td.diff-blockheader {font-weight:bold}
+td.diff-header {
+  border-bottom: 1px solid #8cacbb;
+  font-size:120%;
+}
+td.diff-addedline {
+    background:#ddffdd;
+    font-family: monospace;
+    font-size: 100%;
+}
+td.diff-deletedline { 
+    background:#ffffbb;
+    font-family: monospace;    
+    font-size: 100%;
+}
+td.diff-context {
+    background:#f7f9fa;
+    font-family: monospace;
+    font-size: 100%;
+}
+span.diffchange { color: red; }
+
+
+
+/*	AFFICHAGE DANS LE WIKI
+ */
+
+.pcontent > h1 > a {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h1 > a:hover {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h2 > a {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h2 > a:hover {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h3 > a {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h3 > a:hover {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h4 > a {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h4 > a:hover {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h5 > a {
+	color: black;
+	text-decoration: none;
+}
+.pcontent > h5 > a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+
+
+/*	Contenu des pages
+ */
+.pcontent {
+	background: #EEE;
+	padding: 15px;
+
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+/*	-moz-border-radius: 0px 0px 15px 15px;*/
+}
+
+/*	Champs input dans le contenu
+ */
+div.pcontent .secedit input {
+	color: #BBB;
+	border: 1px solid #DDD;
+	padding: 3px;
+	background: #FFF;
+	font-size: 70%;
+}
+
+div.pcontent .secedit input[type=submit]:hover {
+	color: #000;
+	background: #DDD;
+	padding: 3px;
+}
+
+/* indent different sections */
+.pcontent div.level1 {margin-left: 3px;}
+.pcontent div.level2 {margin-left: 23px;}
+.pcontent div.level3 {margin-left: 43px;}
+.pcontent div.level4 {margin-left: 63px;}
+.pcontent div.level5 {margin-left: 83px;}
+
+/* unordered lists */
+.pcontent ul { 
+  line-height: 1.5em;
+  list-style-type: dotted;
+  margin: 0 0 0.5em 3.5em;
+  padding: 0;
+  list-style-image: url(images/bullet.gif);
+}
+
+/* ordered lists */
+.pcontent ol {
+  line-height: 1.5em;
+  margin: 0 0 0.5em 3.5em;
+  padding: 0;
+  color: #638c9c;
+  font-weight: bold;
+  list-style-image: none;
+}
+
+/* the list items overriding the ol definition */
+.pcontent .li {
+  color: #000000;
+  font-weight: normal;
+}
+
+.pcontent ol {list-style-type: decimal}
+.pcontent ol ol {list-style-type: upper-roman}
+.pcontent ol ol ol {list-style-type: lower-alpha}
+.pcontent ol ol ol ol {list-style-type: lower-greek}
+
+.pcontent li.open {
+  list-style-image: url(images/open.gif);
+}
+
+.pcontent li.closed {
+  list-style-image: url(images/closed.gif);
+}
+
+.pcontent blockquote {
+	border-left: 2px solid #BBB;
+	padding-left: 10px;
+	margin-left: 0;
+	-moz-border-radius: 0px;
+	background-color: #c1e3b0;
+}
+
+/* code blocks by indention */
+.pcontent pre.pre {
+  font-size: 120%;
+  padding: 0.5em;
+  border: 1px dashed #8cacbb;
+  color: Black;
+  background-color: #f7f9fa;
+  overflow: auto;
+}
+
+/* code blocks by code tag */
+.pcontent pre.code {
+	font-size: 120%;
+	padding: 0.5em;
+	border: 1px dashed #BBB;
+	color: Black;
+	background-color: #f7f9fa;
+	overflow: auto;
+}
+
+/* inline code words */
+.pcontent code {
+  font-size: 120%;
+}
+
+/* code blocks by file tag */
+.pcontent pre.file {
+  font-size: 120%;
+  padding: 0.5em;
+  border: 1px dashed #DDD;
+  color: Black;
+  background-color: #e1f3da;
+  overflow: auto;
+}
+
+/* inline tables */
+.pcontent table.inline {
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.pcontent table.inline th {
+  padding: 3px;
+  border: 1px solid #AAA;
+  background-color: #c1e3b0;
+}
+
+.pcontent table.inline td {
+  padding: 3px;
+  border: 1px solid #AAA;
+}
+
+.pcontent .leftalign {
+  text-align: left;
+}
+
+.pcontent .centeralign{
+  text-align: center;
+}
+
+.pcontent .rightalign {
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*	Liens
+ */
+.pcontent a {
+  color:#436976;
+  text-decoration:none;
+}
+.pcontent a:hover {
+  color:#000000;
+  text-decoration:underline;
+}
+
+/* external link */
+.pcontent a.urlextern{
+    background: transparent url(/wiki/lib/tpl/digitalspirit/images/link_icon.gif) 0px 1px no-repeat;
+    padding: 1px 0px 1px 16px;
+    color:#436976;
+    text-decoration:none;
+}
+.pcontent a.urlextern:visited {
+  color:Purple;
+}
+.pcontent a.urlextern:hover {
+  text-decoration:underline;
+}
+
+/* windows share */
+.pcontent a.windows{
+    background: transparent url(/wiki/lib/tpl/digitalspirit/images/windows.gif) 0px 1px no-repeat;
+    padding: 1px 0px 1px 16px;
+    color:#436976;
+    text-decoration:none;
+} 
+.pcontent a.windows:visited {
+  color:Purple;
+}
+.pcontent a.windows:hover { 
+  text-decoration:underline;
+}
+
+/* interwiki link */
+.pcontent a.interwiki{
+    background: transparent url(/wiki/lib/tpl/digitalspirit/images/interwiki.png) 0px 1px no-repeat;
+		padding-left: 16px;
+    color:#436976;
+    text-decoration:none;
+}
+.pcontent a.interwiki:visited {
+  color:Purple;
+}
+.pcontent a.interwiki:hover {
+  text-decoration:underline;
+}
+
+/* link to some embedded media */
+.pcontent a.media {
+  color:#436976;
+  text-decoration:none;
+}
+.pcontent a.media:hover {
+  color:#436976;
+  text-decoration:underline
+}
+
+/* email link */
+.pcontent a.mail {
+  background: transparent url(/wiki/lib/tpl/digitalspirit/images/mail_icon.gif) 0px 1px no-repeat;
+  padding: 1px 0px 1px 16px;
+  color:#436976;
+  text-decoration:none;
+}
+.pcontent a.mail:hover {
+  text-decoration:underline;
+}
+
+/* existing wikipage */
+.pcontent a.wikilink1:link    { color:#009900; text-decoration:none }
+.pcontent a.wikilink1:visited { color:#009900; text-decoration:none }
+.pcontent a.wikilink1:hover   { color:#009900; text-decoration:underline }
+
+/* not existing wikipage */
+.pcontent a.wikilink2:link    { color:#FF3300; text-decoration:none }
+.pcontent a.wikilink2:visited { color:#FF3300; text-decoration:none }
+.pcontent a.wikilink2:hover   { color:#FF3300; text-decoration:underline }
+
+
+
+/* embedded images */
+.pcontent img.media {
+	margin: 3px;
+}
+
+.pcontent img.medialeft {
+	border: 0;
+	float: left;
+	margin: 0 1.5em 0 0;
+}
+
+.pcontent img.mediaright {
+	border: 0;
+	float: right;
+	margin: 0 0 0 1.5em;
+}
+
+.pcontent img.mediacenter {
+	border: 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* --------------------- footnotes -------------------------------- */
+
+div.footnotes{
+  clear:both;
+  border-top: 1px solid #c1e3b0;
+  padding-left: 1em;
+  margin-top: 1em;
+}
+
+div.fn{
+/*  font-size:90%;*/
+	padding: 5px;
+}
+
+a.fn_top{
+  vertical-align:super;
+  font-size:80%;
+}
+
+a.fn_bot{
+  vertical-align:super;
+  font-size:80%;
+  font-weight:bold;
+}
+
+/* insitu-footnotes */
+div.insitu-footnote {
+  font-size: 90%;
+  line-height: 1.2em;
+  border: 1px solid #8cacbb;
+  background: #eef3f8;
+  text-align: left;
+  padding: 4px;
+  max-width: 40%;    /* IE's width is handled in javascript */  
+}
+
+/* overcome IE issue with one line code or file boxes which require h. scrolling */
+* html .insitu-footnote pre.code, * html .insitu-footnote pre.file {
+  padding-bottom: 18px;
+}
+
+
+
+
+
+/**
+ * Basic styles for the spellchecker. Only included when the spellchek option
+ * is enabled. These styles are the absolute minimum to make the spellchecker
+ * work. Templates should add addional styles for making it look nice.
+ */
+
+div.dokuwiki div#spell__suggest {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 2;
+}
+
+div.dokuwiki div#spell__result {
+  display:none;
+  font-family:monospace;
+  overflow: auto;
+  z-index: 1;
+
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+

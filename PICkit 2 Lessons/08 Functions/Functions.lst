@@ -1,0 +1,627 @@
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;******************************************************************************
+                      00002 ;Software License Agreement                                         
+                      00003 ;                                                                    
+                      00004 ;The software supplied herewith by Microchip Technology             
+                      00005 ;Incorporated (the "Company") is intended and supplied to you, the  
+                      00006 ;Company’s customer, for use solely and exclusively on Microchip    
+                      00007 ;products. The software is owned by the Company and/or its supplier,
+                      00008 ;and is protected under applicable copyright laws. All rights are   
+                      00009 ;reserved. Any use in violation of the foregoing restrictions may   
+                      00010 ;subject the user to criminal sanctions under applicable laws, as   
+                      00011 ;well as to civil liability for the breach of the terms and         
+                      00012 ;conditions of this license.                                        
+                      00013 ;                                                                    
+                      00014 ;THIS SOFTWARE IS PROVIDED IN AN "AS IS" CONDITION. NO WARRANTIES,  
+                      00015 ;WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED  
+                      00016 ;TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A       
+                      00017 ;PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,  
+                      00018 ;IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR         
+                      00019 ;CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.       
+                      00020 ; *******************************************************************
+                      00021 ; PICkit 2 Lesson 8 - Function calls
+                      00022 ;
+                      00023 ; This shows how to read the A2D converter and display the
+                      00024 ; High order parts on the 4 bit LED display.
+                      00025 ; The pot on the Low Pin Count Demo board varies the voltage 
+                      00026 ; coming in on in A0.
+                      00027 ;
+                      00028 ; Also the switch is used to reverse the direction of rotation
+                      00029 ;
+                      00030 ; The A2D is referenced to the same Vdd as the device, which 
+                      00031 ; is provided by the USB cable and nominally is 5V.  The A2D
+                      00032 ; returns the ratio of the voltage on Pin RA0 to 5V.  The A2D
+                      00033 ; has a resolution of 10 bits, with 1023 representing 5V and
+                      00034 ; 0 representing 0V.
+                      00035 
+                      00036 #include <p16F690.inc>
+                      00001         LIST
+                      00002 ; P16F690.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                      00607         LIST
+2007   30D4           00037         __config (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _BOR_OFF & _IESO_
+                            OFF & _FCMEN_OFF)
+                      00038 
+                      00039         cblock  0x20
+  00000020            00040 Delay1          ; Assign an address to label Delay1
+  00000021            00041 Delay2
+  00000022            00042 Display         ; define a variable to hold the diplay
+  00000023            00043 Direction
+  00000024            00044 LookingFor
+                      00045         endc
+                      00046 
+0000                  00047         org 0
+0000                  00048 Start
+0000   1683           00049         bsf     STATUS,RP0      ; select Register Page 1
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0001   30FF           00050         movlw   0xFF
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0085           00051         movwf   TRISA           ; Make PortA all input
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   0187           00052         clrf    TRISC           ; Make PortC all output
+0004   3010           00053         movlw   0x10            ; A2D Clock Fosc/8
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0005   009F           00054         movwf   ADCON1
+                      00055 ;       bcf     STATUS,RP0      ; back to Register Page 0
+                      00056 
+0006   1283           00057         bcf     STATUS,RP0      ; address Register Page 2
+0007   1703           00058         bsf     STATUS,RP1      
+0008   3001           00059         movlw   0x01            ; we want all Port A pins Analog, except RA3
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   009E           00060         movwf   ANSEL
+000A   1283           00061         bcf     STATUS,RP0      ; address Register Page 0
+000B   1303           00062         bcf     STATUS,RP1
+                      00063         
+000C   3001           00064         movlw   0x01
+000D   009F           00065         movwf   ADCON0          ; configure A2D for Channel 0 (RA0), Left justified, and turn on the A2D
+                             module
+000E   3008           00066         movlw   0x08
+000F   00A2           00067         movwf   Display
+0010   01A3           00068         clrf    Direction
+0011   01A4           00069         clrf    LookingFor      ; Looking for a 0 on the button
+0012                  00070 MainLoop
+0012   0822           00071         movf    Display,w       ; Copy the display to the LEDs
+0013   0087           00072         movwf   PORTC
+0014   0000           00073         nop                     ; wait 5uS for A2D amp to settle and capacitor to charge.
+0015   0000           00074         nop                     ; wait 1uS
+0016   0000           00075         nop                     ; wait 1uS
+0017   0000           00076         nop                     ; wait 1uS
+0018   0000           00077         nop                     ; wait 1uS
+0019   149F           00078         bsf     ADCON0,GO       ; start conversion
+001A   189F           00079         btfsc   ADCON0,GO       ; this bit will change to zero when the conversion is complete
+001B   281A           00080         goto    $-1
+001C   081E           00081         movf    ADRESH,w        ; Copy the display to the LEDs
+001D   3E01           00082         addlw   1               ; add 1 otherwise entering with 0 takes longer than entering with 1.
+001E   2036           00083         call    Delay           ; Call delay function, with delay factor in Wreg
+                      00084 
+001F   300D           00085         movlw   .13             ; Delay another 10mS plus whatever was above
+0020   2036           00086         call    Delay
+                      00087 
+0021   1824           00088         btfsc   LookingFor,0
+0022   2829           00089         goto    LookingFor1
+0023                  00090 LookingFor0
+0023   1985           00091         btfsc   PORTA,3         ; is the switch pressed (0)
+0024   282B           00092         goto    Rotate
+0025   1424           00093         bsf     LookingFor,0    ; yes  Next we'll be looking for a 1
+0026   30FF           00094         movlw   0xFF            ; load the W register incase we need it
+0027   06A3           00095         xorwf   Direction,f     ; yes, flip the direction bit
+0028   282B           00096         goto    Rotate
+                      00097 
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0029                  00098 LookingFor1
+0029   1985           00099         btfsc   PORTA,3         ; is the switch pressed (0)
+002A   1024           00100         bcf     LookingFor,0
+                      00101         
+002B                  00102 Rotate
+002B   1003           00103         bcf     STATUS,C        ; ensure the carry bit is clear
+002C   1C23           00104         btfss   Direction,0
+002D   2832           00105         goto    RotateLeft
+002E                  00106 RotateRight
+002E   0CA2           00107         rrf     Display,f
+002F   1803           00108         btfsc   STATUS,C        ; Did the bit rotate into the carry?
+0030   15A2           00109         bsf     Display,3       ; yes, put it into bit 3.
+                      00110 
+0031   2812           00111         goto    MainLoop
+0032                  00112 RotateLeft
+0032   0DA2           00113         rlf     Display,f
+0033   1A22           00114         btfsc   Display,4       ; did it rotate out of the display
+0034   1422           00115         bsf     Display,0       ; yes, put it into bit 0
+0035   2812           00116         goto    MainLoop
+                      00117 
+                      00118 ; Delay Function.  Enter with number 771uS delays in Wreg
+0036   00A1           00119 Delay   movwf   Delay2          ;
+0037                  00120 DelayLoop
+0037   0BA0           00121         decfsz  Delay1,f        ; Waste time.  
+0038   2837           00122         goto    DelayLoop       ; The Inner loop takes 3 instructions per loop * 256 loopss = 768 instru
+                            ctions
+0039   0BA1           00123         decfsz  Delay2,f        ; The outer loop takes and additional 3 instructions per lap * 256 loops
+003A   2837           00124         goto    DelayLoop       ; (768+3) * 256 = 197376 instructions / 1M instructions per second = 0.1
+                            97 sec.
+                      00125                                 ; call it a two-tenths of a second.
+003B   0008           00126         return
+                      00127         
+                      00128         end
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABDEN                             00000000
+ABDOVF                            00000007
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000004
+ADCS1                             00000005
+ADCS2                             00000006
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+ANS0                              00000000
+ANS1                              00000001
+ANS10                             00000002
+ANS11                             00000003
+ANS2                              00000002
+ANS3                              00000003
+ANS4                              00000004
+ANS5                              00000005
+ANS6                              00000006
+ANS7                              00000007
+ANS8                              00000000
+ANS9                              00000001
+ANSEL                             0000011E
+ANSELH                            0000011F
+BAUDCTL                           0000009B
+BF                                00000000
+BRG0                              00000000
+BRG1                              00000001
+BRG10                             00000002
+BRG11                             00000003
+BRG12                             00000004
+BRG13                             00000005
+BRG14                             00000006
+BRG15                             00000007
+BRG16                             00000003
+BRG2                              00000002
+BRG3                              00000003
+BRG4                              00000004
+BRG5                              00000005
+BRG6                              00000006
+BRG7                              00000007
+BRG8                              00000000
+BRG9                              00000001
+BRGH                              00000002
+C                                 00000000
+C1CH0                             00000000
+C1CH1                             00000001
+C1IE                              00000005
+C1IF                              00000005
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C1OE                              00000005
+C1ON                              00000007
+C1OUT                             00000006
+C1POL                             00000004
+C1R                               00000002
+C1SEN                             00000005
+C1VREN                            00000007
+C2CH0                             00000000
+C2CH1                             00000001
+C2IE                              00000006
+C2IF                              00000006
+C2OE                              00000005
+C2ON                              00000007
+C2OUT                             00000006
+C2POL                             00000004
+C2R                               00000002
+C2REN                             00000004
+C2SYNC                            00000000
+C2VREN                            00000006
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCPR1H                            00000016
+CCPR1L                            00000015
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+CKE                               00000006
+CKP                               00000004
+CM1CON0                           00000119
+CM2CON0                           0000011A
+CM2CON1                           0000011B
+CREN                              00000004
+CSRC                              00000007
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+D_A                               00000005
+Delay                             00000036
+Delay1                            00000020
+Delay2                            00000021
+DelayLoop                         00000037
+Direction                         00000023
+Display                           00000022
+ECCPAS                            0000001D
+ECCPAS0                           00000004
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ECCPAS1                           00000005
+ECCPAS2                           00000006
+ECCPASE                           00000007
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDAT                             0000010C
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+F                                 00000001
+FERR                              00000002
+FSR                               00000004
+GIE                               00000007
+GO                                00000001
+GO_DONE                           00000001
+HTS                               00000002
+I2C_DATA                          00000005
+I2C_READ                          00000002
+I2C_START                         00000003
+I2C_STOP                          00000004
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IOC                               00000096
+IOC0                              00000000
+IOC1                              00000001
+IOC2                              00000002
+IOC3                              00000003
+IOC4                              00000004
+IOC5                              00000005
+IOCA                              00000096
+IOCA0                             00000000
+IOCA1                             00000001
+IOCA2                             00000002
+IOCA3                             00000003
+IOCA4                             00000004
+IOCA5                             00000005
+IOCB                              00000116
+IOCB4                             00000004
+IOCB5                             00000005
+IOCB6                             00000006
+IOCB7                             00000007
+IRCF0                             00000004
+IRCF1                             00000005
+IRCF2                             00000006
+IRP                               00000007
+LTS                               00000001
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+LookingFor                        00000024
+LookingFor0                       00000023
+LookingFor1                       00000029
+MC1OUT                            00000007
+MC2OUT                            00000006
+MSK                               00000093
+MainLoop                          00000012
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BOR                           00000000
+NOT_DONE                          00000001
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RABPU                         00000007
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_W                             00000002
+NOT_WRITE                         00000002
+OERR                              00000001
+OPTION_REG                        00000081
+OSCCON                            0000008F
+OSCTUNE                           00000090
+OSFIE                             00000007
+OSFIF                             00000007
+OSTS                              00000003
+P                                 00000004
+P1M0                              00000006
+P1M1                              00000007
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PDC0                              00000000
+PDC1                              00000001
+PDC2                              00000002
+PDC3                              00000003
+PDC4                              00000004
+PDC5                              00000005
+PDC6                              00000006
+PEIE                              00000006
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PR2                               00000092
+PRSEN                             00000007
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSSAC0                            00000002
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSSAC1                            00000003
+PSSBD0                            00000000
+PSSBD1                            00000001
+PSTRCON                           0000019D
+PULSR                             00000002
+PULSS                             00000003
+PWM1CON                           0000001C
+R                                 00000002
+RABIE                             00000003
+RABIF                             00000000
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+READ_WRITE                        00000002
+RP0                               00000005
+RP1                               00000006
+RX9                               00000006
+RX9D                              00000000
+R_W                               00000002
+Rotate                            0000002B
+RotateLeft                        00000032
+RotateRight                       0000002E
+S                                 00000003
+SBOREN                            00000004
+SCKP                              00000004
+SCS                               00000000
+SENB                              00000003
+SMP                               00000007
+SPBRG                             00000099
+SPBRGH                            0000009A
+SPEN                              00000007
+SR0                               00000006
+SR1                               00000007
+SRCON                             0000019E
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPMSK                            00000093
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+STRA                              00000000
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STRB                              00000001
+STRC                              00000002
+STRD                              00000003
+STRSYNC                           00000004
+SWDTEN                            00000000
+SYNC                              00000004
+Start                             00000000
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1GINV                            00000007
+T1GSS                             00000001
+T1IE                              00000000
+T1IF                              00000000
+T1OSCEN                           00000003
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+T2IE                              00000001
+T2IF                              00000001
+TMR0                              00000001
+TMR1CS                            00000001
+TMR1GE                            00000006
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISB                             00000086
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000087
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRMT                              00000001
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+TX9                               00000006
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+UA                                00000001
+ULPWUE                            00000005
+VCFG                              00000006
+VP6EN                             00000004
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             00000118
+VRR                               00000005
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000097
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WPU                               00000095
+WPUA                              00000095
+WPUA0                             00000000
+WPUA1                             00000001
+WPUA2                             00000002
+WPUA4                             00000004
+WPUA5                             00000005
+WPUB                              00000115
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+MPASM  5.02                     FUNCTIONS.ASM   4-28-2006  14:37:44         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+WUE                               00000001
+Z                                 00000002
+_BOR_NSLEEP                       00003EFF
+_BOR_OFF                          00003CFF
+_BOR_ON                           00003FFF
+_BOR_SBODEN                       00003DFF
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003F7F
+_CP_OFF                           00003FFF
+_CP_ON                            00003FBF
+_EC_OSC                           00003FFB
+_EXTRC                            00003FFF
+_EXTRCIO                          00003FFE
+_EXTRC_OSC_CLKOUT                 00003FFF
+_EXTRC_OSC_NOCLKOUT               00003FFE
+_FCMEN_OFF                        000037FF
+_FCMEN_ON                         00003FFF
+_HS_OSC                           00003FFA
+_IESO_OFF                         00003BFF
+_IESO_ON                          00003FFF
+_INTOSC                           00003FFD
+_INTOSCIO                         00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FF8
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FEF
+_WDT_OFF                          00003FF7
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FF9
+__16F690                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXX----
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    60
+Program Memory Words Free:  4036
+
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     4 reported,     0 suppressed
+
+

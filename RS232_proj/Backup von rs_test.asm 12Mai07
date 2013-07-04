@@ -1,0 +1,232 @@
+
+;***** PROCESSOR DECLARATION & CONFIGURATION *****
+
+	#include "p16f690.inc"
+	
+	; embed Configuration Data within .asm File.
+	__config (_INTRC_OSC_NOCLKOUT & _WDT_OFF & _PWRTE_OFF & _MCLRE_OFF & _CP_OFF & _IESO_OFF & _FCMEN_OFF)
+
+;***** MEMORY STRUCTURE *****
+
+;***** REGISTER DECLARATION *****
+	cblock 0x20
+FLAGreg
+TXD
+RXD
+W_TEMP
+STATUS_TEMP
+PCLATH_TEMP
+FSR_TEMP
+	endc
+	
+	cblock 0x70
+W_Save
+STATUS_Save
+FLAGS_Save
+	endc
+	
+
+;	LF	equ	d'10'	; Line Feed
+;	CR	equ	d'13'	; Carriage Return
+;	TAB equ d'9'	; Tabulator
+;	BS	equ	d'8'	; Backspace
+
+
+	ORG     0x00			; processor reset vector
+  	goto    MAIN
+
+	ORG     0x04			; interrupt vector
+	goto	ISR			; Interrupt Service Routine (ISR)
+
+
+BANK0	macro			; select register bank 0
+	bcf     STATUS,RP0
+	bcf     STATUS,RP1
+	endm
+	
+BANK1	macro			; select register bank 1
+	bsf     STATUS,RP0
+	bcf     STATUS,RP1
+	endm
+
+BANK2	macro			; select register bank 2
+	bcf     STATUS,RP0
+	bsf     STATUS,RP1
+	endm
+
+BANK3	macro			; select register bank 3
+	bsf     STATUS,RP0
+	bsf     STATUS,RP1
+	endm
+
+
+SEND	macro	S_string	; "SEND 'X'" sends character to RS232
+	movlw	S_string
+	BANK0
+	call	SENDsub
+	endm
+
+
+;***** SUBROUTINES *****
+
+SENDsub	
+	btfss	PIR1,TXIF
+	goto	SENDsub
+	movwf	TXREG
+
+	RETURN
+
+
+
+;***** INTERRUPT SERVICE ROUTINE *****
+
+ISR	;************************
+	;*** ISR CONTEXT SAVE ***
+	;************************
+
+	bcf		INTCON,GIE	; disable all interrupts
+	btfsc	INTCON,GIE	; assure interrupts are disabled
+	goto	ISR
+
+	movwf	W_Save		; context save: W
+	movf	STATUS,w	
+	movwf	STATUS_Save
+	clrf	STATUS		; bank 0, regardless of current bank
+
+
+	;**************************
+	;*** ISR MAIN EXECUTION ***
+	;**************************
+	BANK0
+	btfss PIR1,RCIF
+	goto ISRend
+	btfsc RCSTA,FERR
+	bsf FLAGS_Save,FERR	
+
+	SEND	9		; TAB
+	SEND	'E'
+	SEND	'c'
+	SEND	'h'
+	SEND	'o'
+	SEND	':'
+	SEND	9		;TAB
+	movf	RCREG,w
+	movwf	TXREG
+	btfss	FLAGS_Save,FERR
+	goto	Newline
+	SEND	9		; TAB
+	SEND	'F'
+	SEND	'E'
+	SEND	'R'
+	SEND	'R'
+	
+Newline	
+	SEND	13		; Carriage Return
+	SEND	10		; Line Feed
+		
+
+	;*****************************************
+	;*** ISR TERMINATION (CONTEXT RESTORE) ***
+	;*****************************************
+
+ISRend		movf	STATUS_Save,w
+	movwf	STATUS
+	swapf	W_Save,f
+	swapf	W_Save,w
+	bsf		INTCON,GIE
+	retfie
+;***** END OF INTERRUPT SERVICE ROUTINE *****
+
+
+;************** MAIN **************
+
+MAIN	
+	bcf	INTCON,GIE			; no interrupts at all
+	BANK1
+	bcf TRISC,0
+	BANK0
+	bsf PORTC,0
+	
+;-----initialise EUSART
+;-------initialise clock rate
+	BANK1
+	bsf		TXSTA,BRGH
+	bcf		BAUDCTL,BRG16
+;	movlw
+;	movwf	SPBRGH,F
+	movlw	10
+	movwf	SPBRG
+	bcf	TXSTA,SYNC		; asynchonous
+	bsf	RCSTA,SPEN		; set function of TX pin
+	bcf	TXSTA,TX9			; set 8 bit communication
+	BANK1
+	bcf	PIE1,TXIE		; no send interrupts
+;-------initialise the receiver
+	bsf	PIE1,RCIE		; receiver interrupts ENABLED
+	BANK0
+	bcf RCSTA,RX9			; 8 bit com.
+	
+	bsf	TXSTA,TXEN		; enable transmitter
+	bsf RCSTA,CREN		; enable receiver
+	bsf INTCON,PEIE	
+
+	SEND	13		; Carriage Return
+	SEND	10		; Line Feed
+	SEND	'R'
+	SEND	'S'
+	SEND	'2'
+	SEND	'3'
+	SEND	'2'
+	SEND	' '
+	SEND	'T'
+	SEND	'e'
+	SEND	's'
+	SEND	't'
+	SEND	' '
+	SEND	'I'
+	SEND	'n'
+	SEND	't'
+	SEND	'e'
+	SEND	'r'
+	SEND	'f'
+	SEND	'a'
+	SEND	'c'
+	SEND	'e'
+	SEND	':'
+	SEND	' '
+	SEND	'P'
+	SEND	'I'
+	SEND	'C'
+	SEND	'1'
+	SEND	'6'
+	SEND	'F'
+	SEND	'8'
+	SEND	'4'
+	SEND	' '
+	SEND	'c'
+	SEND	'o'
+	SEND	'n'
+	SEND	'n'
+	SEND	'e'
+	SEND	'c'
+	SEND	't'
+	SEND	'e'
+	SEND	'd'
+	SEND	'.'
+	SEND	'.'
+	SEND	'.'
+	SEND	13		; Carriage Return
+	SEND	10		; Line Feed
+	SEND	10		; Line Feed
+
+	bcf PORTC,0
+	bsf INTCON,GIE
+
+LOOP
+	goto	LOOP
+
+
+
+
+
+end

@@ -1,0 +1,7 @@
+<extensions>
+	<extension>
+		<name>SwapColor</name>
+		<dll>RRModule.dll</dll>
+	</extension>
+</extensions>
+	

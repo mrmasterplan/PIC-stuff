@@ -1,0 +1,2 @@
+Message[302] C:\PIC\PROJECTS\RS232_PROJ\RS_TEST.ASM 70 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\PIC\PROJECTS\RS232_PROJ\RS_TEST.ASM 131 : Found directive in column 1. (end)

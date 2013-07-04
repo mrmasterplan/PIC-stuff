@@ -1,0 +1,110 @@
+__Hrdata_0 C 0 BANK0
+__Lrdata_0 C 0 BANK0
+__Hidata_1 C 0
+__Lidata_1 C 0
+__Hrdata_1 C 0 BANK1
+__Lrdata_1 C 0 BANK1
+__Hidata_2 C 0
+__Lidata_2 C 0
+__S0 6 0
+__S1 C 0
+__Hrdata_2 C 0 BANK2
+__Lrdata_2 C 0 BANK2
+__Hidata_3 C 0
+__Lidata_3 C 0
+__Hrdata_3 C 0 BANK3
+__Lrdata_3 C 0 BANK3
+__Hnvram_1 C 0 BANK1
+__Lnvram_1 C 0 BANK1
+__Hend_init 6 0 CODE
+__Lend_init 4 0 CODE
+__Hnvram_2 C 0 BANK2
+__Lnvram_2 C 0 BANK2
+__Hnvram_3 C 0 BANK3
+__Lnvram_3 C 0 BANK3
+_main 0 0
+_exit 4 0 CODE
+start 4 0 CODE
+__Hfloat_text1 6 0 CODE
+__Lfloat_text1 6 0 CODE
+__Hintsave C 0
+__Lintsave C 0
+__Hintsave_0 C 0 BANK0
+__Lintsave_0 C 0 BANK0
+__Hfloat_text3 6 0 CODE
+__Lfloat_text3 6 0 CODE
+__Hstringtable 6 0 ENTRY
+__Lstringtable 6 0 ENTRY
+__Hintsave_1 C 0 BANK1
+__Lintsave_1 C 0 BANK1
+__Hconfig 2007 0 CODE
+__Lconfig 2007 0 CODE
+__Hstrings 6 0 STRING
+__Lstrings 6 0 STRING
+__Brbit_0 C FFFFFFAC
+__Hrbit_0 60 FFFFFFAC
+__Lrbit_0 60 FFFFFFAC
+__Brbit_1 C FFFFFFAC BANK1
+__Hrbss_0 C 0 BANK0
+__Hrbit_1 60 FFFFFFAC BANK1
+__Lrbss_0 C 0 BANK0
+__Lrbit_1 60 FFFFFFAC BANK1
+__Hintsave_2 C 0 BANK2
+__Lintsave_2 C 0 BANK2
+__Brbit_2 C FFFFFFAC BANK2
+__Hrbss_1 C 0 BANK1
+__Hrbit_2 60 FFFFFFAC BANK2
+__Lrbss_1 C 0 BANK1
+__Lrbit_2 60 FFFFFFAC BANK2
+__Brbit_3 C FFFFFFAC BANK3
+__Hrbss_2 C 0 BANK2
+__Hrbit_3 60 FFFFFFAC BANK3
+__Lrbss_2 C 0 BANK2
+__Lrbit_3 60 FFFFFFAC BANK3
+__Hrbss_3 C 0 BANK3
+__Lrbss_3 C 0 BANK3
+intlevel0 4 0 CODE
+intlevel1 4 0 CODE
+__Hfloat_text0 6 0 CODE
+__Lfloat_text0 6 0 CODE
+__Hpowerup 4 0 CODE
+__Lpowerup 0 0 CODE
+__Hintsave_3 C 0 BANK3
+__Lintsave_3 C 0 BANK3
+__Hvectors 6 0 CODE
+__Lvectors 6 0 CODE
+__Hidloc 2000 0 CODE
+__Lidloc 2000 0 CODE
+__Hintret 4 0 CODE
+__Hfloat_text2 6 0 CODE
+__Lintret 4 0 CODE
+__Lfloat_text2 6 0 CODE
+__Hstruct C 0 BANK0
+__Lstruct C 0 BANK0
+__Hnvram C 0 BANK0
+__Lnvram C 0 BANK0
+__Hclrtext 6 0 CODE
+__Lclrtext 6 0 CODE
+__Hcommon_ram C 0
+__Lcommon_ram C 0
+__Hcode C 0
+__Lcode C 0
+__Hfloat_text4 6 0 CODE
+__Lfloat_text4 6 0 CODE
+__Htemp C 0 BANK0
+__Ltemp C 0 BANK0
+__Hinit 4 0 CODE
+__Linit 4 0 CODE
+powerup 0 0 CODE
+__Htext C 0
+__Ltext C 0
+__Hintentry 4 0 CODE
+__Lintentry 4 0 CODE
+__Hintcode 4 0 CODE
+__Lintcode 4 0 CODE
+__Hidata_0 6 0 CODE
+__Lidata_0 6 0 CODE
+%segments
+powerup 0 7 CODE
+intentry 8 B CODE
+%locals

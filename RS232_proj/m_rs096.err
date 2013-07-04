@@ -1,0 +1,10 @@
+Error[150]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 14 : Labels must be defined in a code or data section when making an object file
+Error[113]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 15 : Symbol not previously defined (TXIF)
+Error[128]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 15 : Missing argument(s)
+Error[152]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 15 : Executable code and data must be defined in an appropriate section
+Error[151]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 16 : Operand contains unresolvable labels or is too complex
+Error[152]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 16 : Executable code and data must be defined in an appropriate section
+Error[113]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 17 : Symbol not previously defined (TXREG)
+Error[152]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 17 : Executable code and data must be defined in an appropriate section
+Error[152]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 19 : Executable code and data must be defined in an appropriate section
+Error[129]   C:\PIC\PROJECTS\RS232_PROJ\M_RS096.ASM 21 : Expected (END)

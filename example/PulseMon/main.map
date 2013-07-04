@@ -1,0 +1,443 @@
+Linker command line:
+
+-z -h+C:\HT-PIC\CFILES\PULSE232\MAIN.SYM \
+  -mC:\HT-PIC\CFILES\PULSE232\MAIN.MAP \
+  -ppowerup=0,intentry=4,intcode,intret,init,end_init,clrtext,stringtable,strings \
+  -pintsave_0=0Ch -ABANK0=0Ch-04Fh \
+  -prbss_0=BANK0,rdata_0=BANK0,idata_0=CODE -ACOMBANK=0Ch-04Fh \
+  -ptemp=COMBANK -ACODE=0-03FFh -ACONST=0-0FFhx4 -pconfig=2007h \
+  -pidloc=2000h -pfloat_text0=CODE,float_text1=CODE,float_text2=CODE \
+  -pfloat_text3=CODE,float_text4=CODE -pnvram=BANK0,nvram_1=BANK1 -Q16F84 \
+  -oC:\windows\temp\L.OBJ C:\HT-PIC\LIB\PICRT400.OBJ MAIN.OBJ \
+  C:\HT-PIC\LIB\PIC400-C.LIB 
+
+Object code version is 3.7
+
+Machine type is 16F84
+
+Call graph:
+
+*_main size 0,0 offset 0
+     _DelayMs size 0,3 offset 0
+     _InitSerial
+*    _i2cstart->_i2cdelay size 0,2 offset 8
+*    _i2cstop->_i2cdelay size 0,2 offset 8
+*    _ShowConfig size 0,0 offset 2
+         _putch size 0,3 offset 4
+             _InitSerial
+         _GetLimit
+         _puts size 0,1 offset 2
+             _putch size 0,3 offset 4
+                 _InitSerial
+*        _GetTime size 0,0 offset 2
+*            _I2C_Send size 2,1 offset 2
+*                _i2cstart->_i2cstart size 0,0 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                _i2csendbyte size 0,2 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                    _i2cclock->_i2cdelay size 0,2 offset 8
+                 _i2cgetack->_i2cdelay size 0,2 offset 8
+*                _i2cstop->_i2cstop size 0,0 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*            _I2C_Read size 2,1 offset 2
+*                _i2cstart->_i2cstart size 0,0 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                _i2csendbyte size 0,2 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                    _i2cclock->_i2cclock size 0,0 offset 7
+*                        _i2cdelay size 0,2 offset 8
+                 _i2cgetack->_i2cgetack size 0,0 offset 5
+                     _i2cdelay size 0,2 offset 8
+*                _i2cstop->_i2cstop size 0,0 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                _i2cgetbyte size 0,2 offset 5
+*                    _i2cdelay size 0,2 offset 8
+*                    _i2creadbit size 0,1 offset 7
+*                        _i2cdelay size 0,2 offset 8
+                 _i2csendack size 0,0 offset 5
+                     _i2cdelay size 0,2 offset 8
+                     _i2cclock->_i2cclock size 0,0 offset 7
+                         _i2cdelay size 0,2 offset 8
+             _Time2String size 0,2 offset 2
+         _PrintNumber size 0,2 offset 2
+             _putch size 0,3 offset 4
+                 _InitSerial
+*    _SetupTime size 0,2 offset 0
+         _putch size 0,3 offset 4
+             _InitSerial
+         _getch size 0,3 offset 4
+             _InitSerial
+         _toupper size 0,1 offset 2
+         _GetNumber size 0,2 offset 2
+             _getch size 0,3 offset 4
+                 _InitSerial
+             _putch size 0,3 offset 4
+                 _InitSerial
+         _SetLimit size 0,1 offset 2
+         _WriteTime->_I2C_Send size 2,1 offset 2
+             _i2cstart->_i2cstart size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+             _i2csendbyte size 0,2 offset 5
+                 _i2cdelay size 0,2 offset 8
+                 _i2cclock->_i2cclock size 0,0 offset 7
+                     _i2cdelay size 0,2 offset 8
+             _i2cgetack->_i2cgetack size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+             _i2cstop->_i2cstop size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+*        _ShowConfig size 0,0 offset 2
+             _putch size 0,3 offset 4
+                 _InitSerial
+             _GetLimit
+             _puts size 0,1 offset 2
+                 _putch size 0,3 offset 4
+                     _InitSerial
+*            _GetTime size 0,0 offset 2
+*                _I2C_Send size 2,1 offset 2
+*                    _i2cstart->_i2cstart size 0,0 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                    _i2csendbyte size 0,2 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                        _i2cclock->_i2cclock size 0,0 offset 7
+*                            _i2cdelay size 0,2 offset 8
+                     _i2cgetack->_i2cgetack size 0,0 offset 5
+                         _i2cdelay size 0,2 offset 8
+*                    _i2cstop->_i2cstop size 0,0 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                _I2C_Read size 2,1 offset 2
+*                    _i2cstart->_i2cstart size 0,0 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                    _i2csendbyte size 0,2 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                        _i2cclock->_i2cclock size 0,0 offset 7
+*                            _i2cdelay size 0,2 offset 8
+                     _i2cgetack->_i2cgetack size 0,0 offset 5
+                         _i2cdelay size 0,2 offset 8
+*                    _i2cstop->_i2cstop size 0,0 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                    _i2cgetbyte size 0,2 offset 5
+*                        _i2cdelay size 0,2 offset 8
+*                        _i2creadbit size 0,1 offset 7
+*                            _i2cdelay size 0,2 offset 8
+                     _i2csendack size 0,0 offset 5
+                         _i2cdelay size 0,2 offset 8
+                         _i2cclock->_i2cclock size 0,0 offset 7
+                             _i2cdelay size 0,2 offset 8
+                 _Time2String size 0,2 offset 2
+             _PrintNumber size 0,2 offset 2
+                 _putch size 0,3 offset 4
+                     _InitSerial
+*    _GetTime size 0,0 offset 2
+*        _I2C_Send size 2,1 offset 2
+*            _i2cstart->_i2cstart size 0,0 offset 5
+*                _i2cdelay size 0,2 offset 8
+*            _i2csendbyte size 0,2 offset 5
+*                _i2cdelay size 0,2 offset 8
+*                _i2cclock->_i2cclock size 0,0 offset 7
+*                    _i2cdelay size 0,2 offset 8
+             _i2cgetack->_i2cgetack size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+*            _i2cstop->_i2cstop size 0,0 offset 5
+*                _i2cdelay size 0,2 offset 8
+*        _I2C_Read size 2,1 offset 2
+*            _i2cstart->_i2cstart size 0,0 offset 5
+*                _i2cdelay size 0,2 offset 8
+*            _i2csendbyte size 0,2 offset 5
+*                _i2cdelay size 0,2 offset 8
+*                _i2cclock->_i2cclock size 0,0 offset 7
+*                    _i2cdelay size 0,2 offset 8
+             _i2cgetack->_i2cgetack size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+*            _i2cstop->_i2cstop size 0,0 offset 5
+*                _i2cdelay size 0,2 offset 8
+*            _i2cgetbyte size 0,2 offset 5
+*                _i2cdelay size 0,2 offset 8
+*                _i2creadbit size 0,1 offset 7
+*                    _i2cdelay size 0,2 offset 8
+             _i2csendack size 0,0 offset 5
+                 _i2cdelay size 0,2 offset 8
+                 _i2cclock->_i2cclock size 0,0 offset 7
+                     _i2cdelay size 0,2 offset 8
+         _Time2String size 0,2 offset 2
+     _puts size 0,1 offset 2
+         _putch size 0,3 offset 4
+             _InitSerial
+     _putch size 0,3 offset 4
+         _InitSerial
+     _PrintNumber size 0,2 offset 2
+         _putch size 0,3 offset 4
+             _InitSerial
+*_InterruptRoutine
+
+		Name          Link     Load   Length Selector Space Scale
+C:\HT-PIC\LIB\PICRT400.OBJ
+		end_init        25       25        2       8     0
+MAIN.OBJ        rbss_0           D        D       20       C     1
+		rdata_0         37       37        9       C     1
+		temp            40       40        2       C     1
+		idata_0        3F7      3F7        9     7EE     0
+		intcode          8        8        8       8     0
+		intret          10       10        5       8     0
+		intentry         4        4        4       8     0
+		intsave_0        C        C        1       C     1
+		text0           95       95        8     12A     0
+		text1          177      177       1A     2EE     0
+		text2          200      200       1D     400     0
+		text3           EF       EF        E     1DE     0
+		text4           E2       E2        D     1C4     0
+		text5          1C7      1C7       1C     38E     0
+		text6          1AC      1AC       1B     358     0
+		text7          191      191       1B     322     0
+		text8          11F      11F       15     23E     0
+		text9          10C      10C       13     218     0
+		text10          A6       A6        A     14C     0
+		text11          D5       D5        D     1AA     0
+		text12         149      149       16     292     0
+		text13         15F      15F       18     2BE     0
+		text14          C8       C8        D     190     0
+		text15          8E       8E        7     11C     0
+		text16         289      289       2D     512     0
+		text17         2E6      2E6       53     5CC     0
+		text18         23B      23B       26     476     0
+		text19          FD       FD        F     1FA     0
+		text20         261      261       28     4C2     0
+		text21         21D      21D       1E     43A     0
+		text22         339      339       8E     672     0
+		intsave         48       48        1       C     1
+		text24          9D       9D        9     13A     0
+		text25         1E3      1E3       1D     3C6     0
+		text26         2B6      2B6       30     56C     0
+		text27         134      134       15     268     0
+		rbit_0         238       47        2       C     1    8
+
+C:\HT-PIC\LIB\PIC400-C.LIB
+toupper.obj     text0           B0       B0        C     160     0
+clrbit0.obj     init            15       15        4       8     0
+powerup.obj     powerup          0        0        4       0     0
+stringtab.obj   stringtab       37       37       12       8     0
+		code_ptr        45       45        2       C     1
+bmul.obj        temp            40       40        2       C     1
+		text            BC       BC        C     178     0
+bdiv.obj        temp            40       40        5       C     1
+		float_tex      3C7      3C7       30     78E     0
+clrbank0.obj    init            19       19        4       8     0
+cpybank0.obj    init            1D       1D        8       8     0
+clr.obj         clrtext         27       27        7       8     0
+copy.obj        temp            40       40        1       C     1
+		clrtext         2E       2E        9       8     0
+btemp0.obj      temp            40       40        1       C     1
+btemp1.obj      temp            40       40        2       C     1
+codeptr.obj     
+
+COMMON          rbss_0          2D       2D        A       C     1
+
+TOTAL		Name          Link     Load   Length
+	CLASS	BANK0    
+		rbss_0           D        D       2A
+		rdata_0         37       37        9
+		temp            40       40        5
+		intsave_0        C        C        1
+		intsave         48       48        1
+		rbit_0         238       47        2
+		code_ptr        45       45        2
+
+	CLASS	COMBANK  
+
+	CLASS	CODE     
+		powerup          0        0        4
+		idata_0        3F7      3F7        9
+		intcode          8        8        8
+		intret          10       10        5
+		intentry         4        4        4
+		init            15       15       10
+		end_init        25       25        2
+		clrtext         27       27       10
+		float_tex      3C7      3C7       30
+		text0           95       95        8
+		text1          177      177       1A
+		text2          200      200       1D
+		text3           EF       EF        E
+		text4           E2       E2        D
+		text5          1C7      1C7       1C
+		text6          1AC      1AC       1B
+		text7          191      191       1B
+		text8          11F      11F       15
+		text9          10C      10C       13
+		text10          A6       A6        A
+		text11          D5       D5        D
+		text12         149      149       16
+		text13         15F      15F       18
+		text14          C8       C8        D
+		text15          8E       8E        7
+		text16         289      289       2D
+		text17         2E6      2E6       53
+		text18         23B      23B       26
+		text19          FD       FD        F
+		text20         261      261       28
+		text21         21D      21D       1E
+		text22         339      339       8E
+		text24          9D       9D        9
+		text25         1E3      1E3       1D
+		text26         2B6      2B6       30
+		text27         134      134       15
+		text0           B0       B0        C
+		text            BC       BC        C
+
+	CLASS	CONST    
+
+	CLASS	BANK1    
+
+	CLASS	BANK2    
+
+	CLASS	BANK3    
+
+	CLASS	STRING   
+
+	CLASS	ENTRY    
+		stringtab       37       37       12
+
+
+
+SEGMENTS	Name		Load	Length	 Top	Selector    Space Class
+
+		powerup         000000	000004	000004	       0       0  CODE  
+		intentry        000004	000045	000049	       8       0  CODE  
+		intsave_0       00000C	00003D	000049	       C       1  BANK0 
+		text15          00008E	000007	000095	     11C       0  CODE  
+		text0           000095	000008	00009D	     12A       0  CODE  
+		text24          00009D	000009	0000A6	     13A       0  CODE  
+		text10          0000A6	00000A	0000B0	     14C       0  CODE  
+		text0           0000B0	00000C	0000BC	     160       0  CODE  
+		text            0000BC	00000C	0000C8	     178       0  CODE  
+		text14          0000C8	00000D	0000D5	     190       0  CODE  
+		text11          0000D5	00000D	0000E2	     1AA       0  CODE  
+		text4           0000E2	00000D	0000EF	     1C4       0  CODE  
+		text3           0000EF	00000E	0000FD	     1DE       0  CODE  
+		text19          0000FD	00000F	00010C	     1FA       0  CODE  
+		text9           00010C	000013	00011F	     218       0  CODE  
+		text8           00011F	000015	000134	     23E       0  CODE  
+		text27          000134	000015	000149	     268       0  CODE  
+		text12          000149	000016	00015F	     292       0  CODE  
+		text13          00015F	000018	000177	     2BE       0  CODE  
+		text1           000177	00001A	000191	     2EE       0  CODE  
+		text7           000191	00001B	0001AC	     322       0  CODE  
+		text6           0001AC	00001B	0001C7	     358       0  CODE  
+		text5           0001C7	00001C	0001E3	     38E       0  CODE  
+		text25          0001E3	00001D	000200	     3C6       0  CODE  
+		text2           000200	00001D	00021D	     400       0  CODE  
+		text21          00021D	00001E	00023B	     43A       0  CODE  
+		text18          00023B	000026	000261	     476       0  CODE  
+		text20          000261	000028	000289	     4C2       0  CODE  
+		text16          000289	00002D	0002B6	     512       0  CODE  
+		text26          0002B6	000030	0002E6	     56C       0  CODE  
+		text17          0002E6	000053	000339	     5CC       0  CODE  
+		text22          000339	00008E	0003C7	     672       0  CODE  
+		float_text1     0003C7	000030	0003F7	     78E       0  CODE  
+		idata_0         0003F7	000009	000400	     7EE       0  CODE  
+
+
+UNUSED ADDRESS RANGES
+
+	BANK0            0049-004F
+	CODE             0049-008D
+	COMBANK          0049-004F
+	CONST            0049-008D
+
+                                  Symbol Table
+
+?_I2C_Read        rbss_0      002F  ?_I2C_Send        rbss_0      002F
+?a_DelayMs        rbss_0      002D  ?a_GetNumber      rbss_0      002F
+?a_I2C_Read       rbss_0      0031  ?a_I2C_Send       rbss_0      0031
+?a_Pause          rbss_0      002D  ?a_PrintNumber    rbss_0      002F
+?a_SetLimit       rbss_0      002F  ?a_SetupTime      rbss_0      002D
+?a_Time2String    rbss_0      002F  ?a_getch          rbss_0      0031
+?a_i2cdelay       rbss_0      0035  ?a_i2cgetbyte     rbss_0      0032
+?a_i2creadbit     rbss_0      0034  ?a_i2csendbyte    rbss_0      0032
+?a_putch          rbss_0      0031  ?a_puts           rbss_0      002F
+?a_toupper        rbss_0      002F  _CurrentTime      rbss_0      001D
+_Date             rbss_0      000D  _DelayMs          text3       00EF
+_GetLimit         text24      009D  _GetNumber        text20      0261
+_GetTime          text18      023B  _Hour             rbss_0      000E
+_I2CBuffer        rbss_0      0015  _I2C_Read         text6       01AC
+_I2C_Send         text5       01C7  _InitSerial       text0       0095
+_InterruptRoutine text23      0049  _Limit            rbss_0      000F
+_Minute           rbss_0      0010  _Month            rbss_0      0011
+_OneHz_Flag       rbit_0      0238  _Pause            text4       00E2
+_PrintNumber      text26      02B6  _PulseCount       rbss_0      0012
+_Second           rbss_0      0013  _SetLimit         text25      01E3
+_SetupTime        text17      02E6  _ShowConfig       text27      0134
+_Time2String      text22      0339  _TxRxInit         rbit_0      0239
+_Version          rdata_0     0037  _WriteTime        text21      021D
+_Year             rbss_0      0014  __Brbit_0         rbit_0      0045
+__Brbit_1         rbit_1      0045  __Brbit_2         rbit_2      0045
+__Brbit_3         rbit_3      0045  __Hclrtext        clrtext     0037
+__Hcode           code        0045  __Hcode_ptr       code_ptr    0047
+__Hcommon_ram     common_ram  0045  __Hconfig         config      2007
+__Hend_init       end_init    0027  __Hfloat_text0    float_text0 0049
+__Hfloat_text1    float_text1 03F7  __Hfloat_text2    float_text2 0049
+__Hfloat_text3    float_text3 0049  __Hfloat_text4    float_text4 0049
+__Hidata_0        idata_0     0400  __Hidata_1        idata_1     0045
+__Hidata_2        idata_2     0045  __Hidata_3        idata_3     0045
+__Hidloc          idloc       2000  __Hinit           init        0025
+__Hintcode        intcode     0010  __Hintentry       intentry    0008
+__Hintret         intret      0015  __Hintsave        intsave     0045
+__Hintsave_0      intsave_0   000D  __Hintsave_1      intsave_1   0045
+__Hintsave_2      intsave_2   0045  __Hintsave_3      intsave_3   0045
+__Hnvram          nvram       0045  __Hnvram_1        nvram_1     0045
+__Hnvram_2        nvram_2     0045  __Hnvram_3        nvram_3     0045
+__Hpowerup        powerup     0004  __Hrbit_0         rbit_0      0228
+__Hrbit_1         rbit_1      0228  __Hrbit_2         rbit_2      0228
+__Hrbit_3         rbit_3      0228  __Hrbss_0         rbss_0      0037
+__Hrbss_1         rbss_1      0045  __Hrbss_2         rbss_2      0045
+__Hrbss_3         rbss_3      0045  __Hrdata_0        rdata_0     0040
+__Hrdata_1        rdata_1     0045  __Hrdata_2        rdata_2     0045
+__Hrdata_3        rdata_3     0045  __Hstrings        strings     0049
+__Hstringtable    stringtable 0049  __Hstruct         struct      0049
+__Htemp           temp        0045  __Htext           text        0045
+__Hvectors        vectors     0049  __Lclrtext        clrtext     0027
+__Lcode           code        0045  __Lcode_ptr       code_ptr    0045
+__Lcommon_ram     common_ram  0045  __Lconfig         config      2007
+__Lend_init       end_init    0025  __Lfloat_text0    float_text0 0049
+__Lfloat_text1    float_text1 03C7  __Lfloat_text2    float_text2 0049
+__Lfloat_text3    float_text3 0049  __Lfloat_text4    float_text4 0049
+__Lidata_0        idata_0     03F7  __Lidata_1        idata_1     0045
+__Lidata_2        idata_2     0045  __Lidata_3        idata_3     0045
+__Lidloc          idloc       2000  __Linit           init        0015
+__Lintcode        intcode     0008  __Lintentry       intentry    0004
+__Lintret         intret      0010  __Lintsave        intsave     0045
+__Lintsave_0      intsave_0   000C  __Lintsave_1      intsave_1   0045
+__Lintsave_2      intsave_2   0045  __Lintsave_3      intsave_3   0045
+__Lnvram          nvram       0045  __Lnvram_1        nvram_1     0045
+__Lnvram_2        nvram_2     0045  __Lnvram_3        nvram_3     0045
+__Lpowerup        powerup     0000  __Lrbit_0         rbit_0      0228
+__Lrbit_1         rbit_1      0228  __Lrbit_2         rbit_2      0228
+__Lrbit_3         rbit_3      0228  __Lrbss_0         rbss_0      000D
+__Lrbss_1         rbss_1      0045  __Lrbss_2         rbss_2      0045
+__Lrbss_3         rbss_3      0045  __Lrdata_0        rdata_0     0037
+__Lrdata_1        rdata_1     0045  __Lrdata_2        rdata_2     0045
+__Lrdata_3        rdata_3     0045  __Lstrings        strings     0049
+__Lstringtable    stringtable 0037  __Lstruct         struct      0049
+__Ltemp           temp        0040  __Ltext           text        0045
+__Lvectors        vectors     0049  __S0              (abs)       0400
+__S1              (abs)       0049  _exit             init        0015
+_getch            text2       0200  _i2cclock         text11      00D5
+_i2cdelay         text15      008E  _i2cgetack        text13      015F
+_i2cgetbyte       text8       011F  _i2creadbit       text12      0149
+_i2csendack       text14      00C8  _i2csendbyte      text7       0191
+_i2cstart         text9       010C  _i2cstop          text10      00A6
+_main             text16      0289  _putch            text1       0177
+_puts             text19      00FD  _toupper          text0       00B0
+abmul             text        00BC  abmul_t           text        00BD
+clear_bank0       init        0019  clear_bit0        init        0015
+clear_ram         clrtext     002A  code_ptr          code_ptr    0045
+copy_bank0        init        001D  copy_data         clrtext     002E
+dobdiv            float_text1 03C9  int_entry         intentry    0004
+int_func          intcode     0008  int_restore       intret      0010
+intlevel0         intentry    0004  intlevel1         intentry    0004
+lbdiv             float_text1 03C7  lbdiv_t           float_text1 03C8
+lbmod             float_text1 03C7  lbmod_t           float_text1 03C8
+lbmul             text        00BC  lbmul_t           text        00BD
+powerup           powerup     0000  start             init        0015
+string_indir      stringtable 0038  string_table      stringtable 0037
+used_btemp0       (abs)       0001  used_btemp1       (abs)       0001
+used_code_ptr     (abs)       0001  
